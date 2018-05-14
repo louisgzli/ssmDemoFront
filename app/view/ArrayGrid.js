@@ -49,7 +49,7 @@ Ext.define('ssmDemo.view.ArrayGrid', {
                     click: {
                         fn: function () {
                             // alert("add button has been clicked");
-                            Ext.create('AM.view.user.ModifyList', {
+                            Ext.create('ssmDemo.view.ModifyList', {
                                 dockedItems: [{
                                     xtype: 'toolbar',
                                     dock: 'bottom',
@@ -93,7 +93,7 @@ Ext.define('ssmDemo.view.ArrayGrid', {
                 listeners: {
                     click: {
                         fn: function () {
-                            var modify = Ext.create('AM.view.user.ModifyList', {
+                            var modify = Ext.create('ssmDemo.view.ModifyList', {
                                 dockedItems: [{
                                     xtype: 'toolbar',
                                     dock: 'bottom',
@@ -187,7 +187,7 @@ Ext.define('ssmDemo.view.ArrayGrid', {
                 tooltip: '查询',
                 handler: function () {
 
-                    Ext.create('AM.view.user.ModifyList', {
+                    Ext.create('ssmDemo.view.ModifyList', {
                         dockedItems: [{
                             xtype: 'toolbar',
                             dock: 'bottom',
