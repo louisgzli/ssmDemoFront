@@ -1,11 +1,14 @@
 /**
  * Created by bliss on 2018/5/13.
  */
-Ext.define('ssmDemo.view.collapseList', {
+Ext.define(
+
+
+    'ssmDemo.view.collapseList', {
     extend:"Ext.panel.Panel",
     title: 'Accordion Layout',
     width: "100%",
-    height: "100%",
+    height: "80%",
     defaults: {
         // applied to each contained panel
         bodyStyle: 'padding:15px'
@@ -18,10 +21,9 @@ Ext.define('ssmDemo.view.collapseList', {
         activeOnTop: true
     },
     items: [{
-        title: 'Panel 1',
+        title: '系统管理',
         layout : 'vbox',
         items:[
-
             {
                 xtype:"button",
                 text:"button1",
@@ -42,7 +44,7 @@ Ext.define('ssmDemo.view.collapseList', {
         ]
     },
         {
-        title: 'Panel 2',
+        title: '企业管理',
         html: 'Panel content!',
             layout : 'vbox',
             items:[
@@ -66,7 +68,7 @@ Ext.define('ssmDemo.view.collapseList', {
 
             ]
     },{
-        title: 'Panel 3',
+        title: '商品管理',
         html: 'Panel content!',
             layout : 'vbox',
             items:[
