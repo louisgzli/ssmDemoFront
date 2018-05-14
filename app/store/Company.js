@@ -2,12 +2,15 @@ requires:[
     "Ext.ux.data.PagingMemoryProxy",
     'Ext.grid.plugin.BufferedRenderer',
 ]
-
+var proxy=new Ext.data.HttpProxy({url:"localhost:8080/loadCompany"});
+var reader = new Ext.data.JsonReader(
+    {totalProperty:"totalProperty",root:"companies"}
+);
 Ext.define("ssmDemo.store.Company",{
     extend:"Ext.data.Store",
     model:"ssmDemo.model.Company",
 
-    data:[
+    /*data:[
         { "company":"序贯博","staff":120,"type":"民营企业","area":"城关区"},
         { "company":"万维","staff":500,"type":"民营企业","area":"城关区"},
         { "company":"金昌金川集团有限公司","staff":500,"type":"民营企业","area":"城关区"},
@@ -42,44 +45,20 @@ Ext.define("ssmDemo.store.Company",{
         { "company":"兰州甘肃小三峡水电开发有限责任公司小峡水电厂","staff":99,"type":"国有企业","area":"七里河区"},
         { "company":"金昌金昌铁业(集团)有限责任公司","staff":99,"type":"国有企业","area":"七里河区"},
         { "company":"兰州腾达西北铁合金有限责任公司","staff":99,"type":"国有企业","area":"七里河区"},
-
-
-
-
-
-
-
-
-    ],
+    ],*/
 
     // autoLoad:{start:0,limit:5},
     // pageSize:5,
     autoLoad:true,
-    filterOnLoad:true,
     proxy:{
-        type:"pagingmemory",
-        // type:"ajax",
-        /*api:{
-         read:"data/company.json"
-         },*/
+        // type:"pagingmemory",
+        type:"ajax",
+        url:"localhost:8080/loadCompany.action",
         reader:{
+
             type:"json",
-            // root:"company",
+            root:"companies",
             totalProperty:"totalCount",
         },
-        filterParam: 'query',
-
-        // The PHP script just use query=<whatever>
-        encodeFilters: function(filters) {
-            return filters[0].value;
-        }
-
     },
-
-
-    remoteFilter: true,
-
-
-
-
 })
